@@ -1,12 +1,12 @@
 import { prisma } from "../config/database.js";
 
 async function getCars() {
-  const data = await prisma.cars.findMany();
+  const data = await prisma.car.findMany();
   return data;
 }
 
 async function getCar(id: number) {
-  const data = await prisma.cars.findUnique({
+  const data = await prisma.car.findUnique({
     where: {
       id: id,
     }
@@ -15,7 +15,7 @@ async function getCar(id: number) {
 }
 
 async function getCarWithLicensePlate(licensePlate: string) {
-  const data = await prisma.cars.findUnique({
+  const data = await prisma.car.findUnique({
     where: {
       licensePlate : licensePlate,
     }
@@ -24,7 +24,7 @@ async function getCarWithLicensePlate(licensePlate: string) {
 }
 
 async function createCar(model: string, licensePlate: string, year: number, color: string) {
-  await prisma.cars.create({
+  await prisma.car.create({
     data: {
       model: model,
       licensePlate: licensePlate,
@@ -35,7 +35,7 @@ async function createCar(model: string, licensePlate: string, year: number, colo
 }
 
 async function deleteCar(id: number) {
-  await await prisma.cars.delete({
+  await await prisma.car.delete({
     where: {
       id: id,
     }

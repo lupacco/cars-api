@@ -13,7 +13,7 @@ model Car {
     licensePlate String   @unique
     year         Int
     color        String
-    createdAt    DateTime @default(now())
+    createAt    DateTime @default(now())
 
     @@map("cars")
 }
